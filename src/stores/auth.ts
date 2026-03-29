@@ -1,19 +1,17 @@
 import {defineStore} from 'pinia'
 import {jwtDecode} from 'jwt-decode'
 import axios from 'axios'
-import type {AuthenticationLoginResponseDto as LoginResponse} from "@/dto/authenticationDto/AuthenticationLoginResponseDto "
+import type {AuthenticationLoginResponseDto as Response} from "@/dto/authenticationDto/AuthenticationResponseDto "
+import type {AuthenticationLoginRequestDto as LoginRequest} from "@/dto/authenticationDto/authenticationLoginRequestDto";
+import type {AuthenticationSignupRequestDto as SignupRequest} from "@/dto/authenticationDto/authenticationSignupRequestDto";
 import {URL} from '@/api/config'
 import router from '@/router'
 
-//M.G: parts of code are from claude!
+//M.G: some parts of code are from claude!
 
 interface authState{
-    token: string | null
-}
-
-interface LoginCredentials {
-    email: string
-    password: string
+    userId:string
+    token: string
 }
 
 interface JwtPayload{
@@ -23,11 +21,12 @@ interface JwtPayload{
 
 export const useAuthStore = defineStore('auth',{
     state: () : authState=> ({
-       token: localStorage.getItem('token') || null,
+       token: localStorage.getItem('token') ,
+        userId: localStorage.getItem('userId')
     }),
 
     getters: {
-        isAuthenticated: (state): boolean => !!state.token,
+        isNotAuthenticated: (state): boolean => !!state.token,
         isTokenExpired: (state): boolean => {
             if  (!state.token) return true;
             const {exp} = jwtDecode<JwtPayload>(state.token)
@@ -36,14 +35,25 @@ export const useAuthStore = defineStore('auth',{
     },
 
     actions: {
-        async login(credentials: LoginCredentials): Promise<void> {
-            const {data} = await axios.post<LoginResponse>(`${URL}/authentication/login`,credentials)
+        async login(credentials: LoginRequest): Promise<void> {
+            const {data} = await axios.post<Response>(`${URL}/authentication/login`,credentials)
             this.token=data.token
+            this.userId=data.id
             localStorage.setItem('token',data.token)
+            localStorage.setItem('userid',data.id)
+        },
+        async signup(credentials: SignupRequest): promise<void>{
+            const {data} = await axios.post<Response>(`${URL}/authentication/users`,credentials)
+            this.token=data.token
+            this.userId=data.id
+            localStorage.setItem('token',data.token)
+            localStorage.setItem('userid',data.id)
         },
         logout():void {
             this.token = null
+            this.userId = null
             localStorage.removeItem('token')
+            localStorage.removeItem('userId')
         },
     },
 })

@@ -2,16 +2,16 @@
 import {ref} from 'vue'
 import {router} from '@/router'
 import type {AuthenticationLoginRequestDto} from '@/dto/authenticationDto/authenticationLoginRequestDto'
-import type {AuthenticationLoginResponseDto} from '@/dto/authenticationDto/authenticationLoginResponseDto'
-import {authenticationApi} from '@/api/authenticationApi'
 import {useAuthStore} from '@/stores/auth'
 
 const auth=useAuthStore()
 
-const user=ref<AuthenticationLoginRequestDto>({
+const user=ref<AuthenticationLoginRequestDto>({//M.G: ref is needed because types don't exist in runtime only compile time. so ref creates object that exist in runtime
   email:'',
   password:''
 })
+
+const errorMessage=ref('')
 
 async function handleSubmit(){
   try{
@@ -20,7 +20,10 @@ async function handleSubmit(){
   }
     catch (error){
       console.error('Error occurred: ',error.message);
-      const errorMessage=ref(error.message);
+      if(error.response?.status==403 || error.response?.status==401)
+        errorMessage.value="Incorrect email or password!"
+      else if(error.response?.status>= 500 && error.response?.status< 600)
+        errorMessage.value="Server error: "+error.response.data+ " please try again latter."
   }
 }
 

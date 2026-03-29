@@ -7,6 +7,7 @@ export const router = createRouter({
     history: createWebHistory(),
     routes:[
         {path: '/login',component:() => import ('@/pages/AuthenticationPage.vue')},
+        {path: '/signup',component:()=> import ('@/pages/SignupPage.vue')},
         {path: '/', component:() => import  ('@/pages/HomePage.vue'), meta: {requiresAuth: true}}
     ]
 })
@@ -15,7 +16,7 @@ export const router = createRouter({
 //M.G: after this is claude code!!!
 router.beforeEach((to,from)=> {
     const auth = useAuthStore()
-    if (to.meta.requiresAuth && (!auth.isAuhtenticated || auth.isTokenExpired)){
+    if (to.meta.requiresAuth && (auth.isNotAuhtenticated || auth.isTokenExpired)){
         auth.logout()
         return '/login'
     }

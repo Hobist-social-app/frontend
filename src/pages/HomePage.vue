@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Navbar from '@/components/shared/Navbar.vue'
+import Navbar from '@/components/Navbar.vue'
 import type {UserResponseDto as user} from "@/dto/userDto/userResponseDto";
 import type {PostResponseDto as post} from "@/dto/postDto/postResponseDto";
 
