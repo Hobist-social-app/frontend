@@ -67,12 +67,11 @@ function ArePasswordRequirementsMet(password: string): string{
     <form @submit.prevent="submit" autocomplete="off">
       <h1 class="heading">Sign in here</h1>
 
-      <!-- Error message display -->
       <div v-if="errorMessage" class="error-message">
         <span>{{errorMessage}}</span>
       </div>
 
-      <!-- Password requirements display -->
+      <!--M.G: password requirements display in case of weak password-->
       <div v-if="passwordRequirements" class="password-requirements">
         <strong>Password Requirements:</strong><br/>
         <span> {{passwordRequirements}}</span>
