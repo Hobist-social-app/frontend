@@ -1,1 +1,1 @@
-export const URL:string='http://localhost:8080/api/v1'
+export const URL:string='https://backend-b8lc.onrender.com/api/v1'
