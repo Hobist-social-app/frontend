@@ -32,7 +32,10 @@ async function handleSubmit(){
 <template>
   <p>This is a work in progress</p>
   <p>For now only login and signup is available, which will redirect you on blank home page</p>
-  <p>if you want to test this app you don't have to use your real email, you can use any. we don't test your email for now</p>
+  <p>If you want to test this app you don't have to create account with your real email,</p>
+  <p>you can use any. we don't test your email for now.</p>
+
+
   <div id="outer-box">
 
     <form @submit.prevent="handleSubmit" autocomplete="off">
