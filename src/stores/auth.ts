@@ -7,7 +7,6 @@ import type {AuthenticationSignupRequestDto as SignupRequest} from "@/dto/authen
 import {URL} from '@/api/config'
 import {router} from '@/router'
 
-//M.G: some parts of code are from claude!
 
 interface authState{
     userId:string

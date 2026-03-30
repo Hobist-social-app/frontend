@@ -35,7 +35,6 @@ async function handleSubmit(){
     <form @submit.prevent="handleSubmit" autocomplete="off">
       <h1 class="heading">Login here</h1>
 
-      <!-- Error message display -->
       <div v-if="errorMessage" class="error-message">
         <span> {{errorMessage}}</span>
       </div>

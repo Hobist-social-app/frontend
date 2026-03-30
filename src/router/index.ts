@@ -13,7 +13,6 @@ export const router = createRouter({
 })
 
 
-//M.G: after this is claude code!!!
 router.beforeEach((to,from)=> {
     const auth = useAuthStore()
     if (to.meta.requiresAuth && (auth.isNotAuhtenticated || auth.isTokenExpired)){

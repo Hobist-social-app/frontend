@@ -2,8 +2,6 @@ import axios,{AxiosResponse,InternalAxiosRequestConfig} from 'axios'
 import {useAuthStore} from '@/stores/auth'
 import {router} from "@/router"
 
-//M.G: parts of claude code!!
-
 axios.interceptors.request.use((config: InternalAxiosRequestConfig) =>{
     const auth=useAuthStore()
     if(auth.token){
