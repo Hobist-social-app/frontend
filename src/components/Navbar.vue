@@ -39,7 +39,7 @@ const auth=useAuthStore()
         </a>
       </li>
       <li >
-        <a v-on:click="auth.logout()" href="/login">Logout</a>
+        <button @click="auth.logout()">Logout</button>
 
       </li>
       <li >
