@@ -5,7 +5,7 @@ import type {AuthenticationLoginResponseDto as Response} from "@/dto/authenticat
 import type {AuthenticationLoginRequestDto as LoginRequest} from "@/dto/authenticationDto/authenticationLoginRequestDto";
 import type {AuthenticationSignupRequestDto as SignupRequest} from "@/dto/authenticationDto/authenticationSignupRequestDto";
 import {URL} from '@/api/config'
-import router from '@/router'
+import {router} from '@/router'
 
 //M.G: some parts of code are from claude!
 
@@ -54,6 +54,7 @@ export const useAuthStore = defineStore('auth',{
             this.userId = null
             localStorage.removeItem('token')
             localStorage.removeItem('userId')
+            router.push('/login')
         },
     },
 })

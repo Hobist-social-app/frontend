@@ -18,7 +18,6 @@ axios.interceptors.response.use(
         if (error.response?.status== 401 || error.response?.status== 403){
             const auth = useAuthStore()
             auth.logout()
-           router.push('/login')
         }
         return Promise.reject(error)
     }
