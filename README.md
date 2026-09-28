@@ -3,12 +3,7 @@
 ## about
     Made with vue/typescript, set up with vite project is being refactored
     for new technology and architecture.
-    this project is deployed on vercel
 
-## Working features
-    - Login/signup
-    - Hashed password for safety
-    - JWT for safe and fast authentication
 
 ## Future features
 
@@ -24,8 +19,4 @@
 ## Future plans 
 
     - Set up ci/cd for better/safer deployment
-    - move from vercel to VPS
 
-## Known bugs
-    - There is a problem with logging out of account. app should redirect you to 
-    /login but vercel throws 404 error page. Cause could be bad vercel setup.

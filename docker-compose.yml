@@ -5,6 +5,6 @@ services:
       - "5173:5173"
     volumes:
       - .:/app
-      - /app/node_modules
+      - /mnt/storage/docker_volume/hobist_frontend:/app/node_modules
     environment:
       - NODE_ENV=development
