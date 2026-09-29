@@ -36,7 +36,11 @@
   }
 
   #outer-box::before {
-    @apply absolute inset-x-0 top-0 h-1.5 bg-linear-to-r from-indigo-500 via-sky-500 to-emerald-400 content-[''];
+    @apply absolute inset-x-0 top-0 h-1.5 bg-linear-to-br from-green-500 to-green-900  content-[''];
+  }
+
+  #outer-box::after{
+    @apply absolute inset-x-0 bottom-0 h-1.5 bg-linear-to-br from-green-900 to-green-500  content-[''];
   }
 
   .heading {
@@ -52,11 +56,11 @@
   }
 
   .button {
-    @apply mt-1 min-h-12 w-full cursor-pointer rounded-xl border-0 bg-linear-to-br from-indigo-500 to-blue-600 px-4 py-3 text-sm font-bold tracking-wider text-white uppercase shadow-lg shadow-indigo-500/25 transition duration-150 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-xl hover:shadow-indigo-500/30 active:translate-y-0 focus-visible:outline-4 focus-visible:outline-indigo-500/35 focus-visible:outline-offset-2;
+    @apply mt-1 min-h-12 w-full cursor-pointer rounded-xl border-0 bg-linear-to-br from-green-900 via-green-600 to-green-900 px-4 py-3 text-sm font-bold tracking-wider text-white uppercase shadow-lg shadow-indigo-500/25 transition duration-150 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-xl hover:shadow-indigo-500/30 active:translate-y-0 focus-visible:outline-4 focus-visible:outline-indigo-500/35 focus-visible:outline-offset-2;
   }
 
   hr {
-    @apply my-7 h-px w-full border-0 bg-slate-200;
+    @apply my-7 h-px w-full border-0 bg-black;
   }
 
   .noAcc {
@@ -68,7 +72,7 @@
   }
 
   .noAcc a {
-    @apply font-bold text-indigo-600 no-underline transition hover:text-indigo-800 hover:underline hover:underline-offset-3 focus-visible:rounded-sm focus-visible:outline-4 focus-visible:outline-indigo-500/35 focus-visible:outline-offset-2;
+    @apply font-bold text-emerald-600 no-underline transition hover:text-emerald-800 hover:underline hover:underline-offset-3 focus-visible:rounded-sm focus-visible:outline-4 focus-visible:outline-indigo-500/35 focus-visible:outline-offset-2;
   }
 
   .error-message,

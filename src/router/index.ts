@@ -8,7 +8,7 @@ export const router = createRouter({
     routes:[
         {path: '/login',component:() => import ('@/pages/AuthenticationPage.vue')},
         {path: '/signup',component:()=> import ('@/pages/SignupPage.vue')},
-        {path: '/', component:() => import  ('@/pages/HomePage.vue'), meta: {requiresAuth: true}}
+        {path: '/', component:() => import  ('@/pages/HomePage.vue'),/* meta: {requiresAuth: true}*/}
     ]
 })
 
