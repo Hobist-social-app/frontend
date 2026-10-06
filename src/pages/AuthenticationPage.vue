@@ -28,13 +28,7 @@ async function handleSubmit(){
 }
 
 </script>
-
 <template>
-  <p>This is a work in progress</p>
-  <p>For now only login and signup are available, which will redirect you to blank home page</p>
-  <p>If you want to test this app you don't have to create account with your real email,</p>
-  <p>you can use any. we don't test your email for now.</p>
-
 
   <div id="outer-box">
 
@@ -59,7 +53,7 @@ async function handleSubmit(){
 
     <div class="noAcc">
       <p> Dont have an account?<router-link to="/signup"> Register here</router-link></p>
-      <router-link to="/forgot-password">Forgot password?</router-link>
+      <router-link to="/password-recovery">Forgot password?</router-link>
     </div>
   </div>
 </template>

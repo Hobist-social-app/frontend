@@ -7,8 +7,9 @@ export const router = createRouter({
     history: createWebHistory(),
     routes:[
         {path: '/login',component:() => import ('@/pages/AuthenticationPage.vue')},
+        {path: '/password-recovery',component:() => import ('@/pages/PasswordRecovery.vue')},
         {path: '/signup',component:()=> import ('@/pages/SignupPage.vue')},
-        {path: '/', component:() => import  ('@/pages/HomePage.vue'), meta: {requiresAuth: true}}
+        {path: '/', component:() => import  ('@/pages/HomePage.vue'),/* meta: {requiresAuth: true}*/}
     ]
 })
 

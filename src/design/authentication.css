@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme{
+  --color-dark-jungle-green: #1A2421;
+}
+
+@layer base {
+  body {
+    @apply grid min-h-screen min-w-80 place-content-center bg-dark-jungle-green px-6 py-12 font-sans text-slate-900 antialiased;
+    background-image:
+      radial-gradient(circle at 10% 15%, rgb(100 102 241 / 0.18), transparent 30rem),
+      radial-gradient(circle at 90% 85%, rgb(16 185 129 / 0.14), transparent 28rem);
+  }
+
+  button,
+  input {
+    font: inherit;
+  }
+}
+
+@layer components {
+  #app {
+    @apply w-full max-w-md;
+  }
+
+  #app > p {
+    @apply mb-1 text-center text-sm leading-5 text-slate-500;
+  }
+
+  #app > p:last-of-type {
+    @apply mb-6;
+  }
+
+  #outer-box {
+    @apply relative overflow-hidden rounded-2xl border border-white/80 bg-white/90 p-8 shadow-2xl shadow-slate-900/15 backdrop-blur sm:p-10;
+  }
+
+  #outer-box::before {
+    @apply absolute inset-x-0 top-0 h-1.5 bg-linear-to-br from-green-500 to-green-900  content-[''];
+  }
+
+  #outer-box::after{
+    @apply absolute inset-x-0 bottom-0 h-1.5 bg-linear-to-br from-green-900 to-green-500  content-[''];
+  }
+
+  .heading {
+    @apply mb-7 text-center text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl;
+  }
+
+  label {
+    @apply mb-2 text-sm font-semibold text-slate-600;
+  }
+
+  .input-controll {
+    @apply mb-5 min-h-12 w-full rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-slate-900 outline-none transition duration-150 placeholder:text-slate-400 hover:border-slate-300 focus:border-indigo-500 focus:bg-white focus:ring-4 focus:ring-indigo-500/15;
+  }
+
+  .button {
+    @apply mt-1 min-h-12 w-full cursor-pointer rounded-xl border-0 bg-linear-to-br from-green-900 via-green-600 to-green-900 px-4 py-3 text-sm font-bold tracking-wider text-white uppercase shadow-lg shadow-indigo-500/25 transition duration-150 hover:-translate-y-0.5 hover:brightness-105 hover:shadow-xl hover:shadow-indigo-500/30 active:translate-y-0 focus-visible:outline-4 focus-visible:outline-indigo-500/35 focus-visible:outline-offset-2;
+  }
+
+  hr {
+    @apply my-7 h-px w-full border-0 bg-black;
+  }
+
+  .noAcc {
+    @apply text-center text-sm text-slate-500;
+  }
+
+  .noAcc p {
+    @apply mb-3;
+  }
+
+  .noAcc a {
+    @apply font-bold text-emerald-600 no-underline transition hover:text-emerald-800 hover:underline hover:underline-offset-3 focus-visible:rounded-sm focus-visible:outline-4 focus-visible:outline-indigo-500/35 focus-visible:outline-offset-2;
+  }
+
+  .error-message,
+  .password-requirements {
+    @apply mb-5 rounded-xl border px-4 py-3 text-sm leading-relaxed;
+  }
+
+  .error-message {
+    @apply border-red-200 bg-red-50 text-red-800;
+  }
+
+  .password-requirements {
+    @apply border-blue-200 bg-blue-50 text-blue-900;
+  }
+
+  .password-requirements strong {
+    @apply text-blue-950;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    @apply !scroll-auto !transition-none;
+  }
+}
