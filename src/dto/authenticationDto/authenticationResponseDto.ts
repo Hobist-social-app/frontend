@@ -1,5 +1,5 @@
+import {Immutable} from "@/types/immutable";
 
-export type AuthenticationResponseDto =immutable<{
-    id: string
+export type AuthenticationResponseDto =Immutable<{
     token:string
 }>

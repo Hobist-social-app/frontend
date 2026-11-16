@@ -9,8 +9,7 @@ const errorMessage=ref('')
 const auth=useAuthStore()
 
 const user=ref<AuthenticationSignupRequestDto>({
-  name:'',
-  surname:'',
+  nickname:'',
   email:'',
   password:'',
   confirmPassword:'',
@@ -77,12 +76,8 @@ function ArePasswordRequirementsMet(password: string): string{
         <span> {{passwordRequirements}}</span>
       </div>
 
-      <label>First name</label>
+      <label>Nickname</label>
       <input type="text" v-model="user.name" placeholder="First Name" class="input-controll">
-
-      <label>Last name</label>
-      <input type="text" v-model="user.surname" placeholder="Last Name" class="input-controll">
-
 
       <label>Email</label>
       <input type="email" v-model="user.email" placeholder="Email" class="input-controll">

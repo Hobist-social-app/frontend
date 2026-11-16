@@ -1,7 +1,7 @@
 import {defineStore} from 'pinia'
 import {jwtDecode} from 'jwt-decode'
 import axios from 'axios'
-import type {AuthenticationLoginResponseDto as Response} from "@/dto/authenticationDto/AuthenticationResponseDto "
+import type {AuthenticationResponseDto as Response} from "@/dto/authenticationDto/authenticationResponseDto";
 import type {AuthenticationLoginRequestDto as LoginRequest} from "@/dto/authenticationDto/authenticationLoginRequestDto";
 import type {AuthenticationSignupRequestDto as SignupRequest} from "@/dto/authenticationDto/authenticationSignupRequestDto";
 import {URL} from '@/api/config'
@@ -9,7 +9,6 @@ import {router} from '@/router'
 
 
 interface authState{
-    userId:string
     token: string
 }
 
@@ -20,8 +19,7 @@ interface JwtPayload{
 
 export const useAuthStore = defineStore('auth',{
     state: () : authState=> ({
-       token: localStorage.getItem('token') ,
-        userId: localStorage.getItem('userId')
+       token: localStorage.getItem('token')
     }),
 
     getters: {
@@ -35,24 +33,18 @@ export const useAuthStore = defineStore('auth',{
 
     actions: {
         async login(credentials: LoginRequest): Promise<void> {
-            const {data} = await axios.post<Response>(`${URL}/authentication/login`,credentials)
+            const {data} = await axios.post<Response>(`${URL}/login`,credentials)
             this.token=data.token
-            this.userId=data.id
             localStorage.setItem('token',data.token)
-            localStorage.setItem('userid',data.id)
         },
-        async signup(credentials: SignupRequest): promise<void>{
-            const {data} = await axios.post<Response>(`${URL}/authentication/users`,credentials)
+        async signup(credentials: SignupRequest): Promise<void>{
+            const {data} = await axios.post<Response>(`${URL}/signup`,credentials)
             this.token=data.token
-            this.userId=data.id
             localStorage.setItem('token',data.token)
-            localStorage.setItem('userid',data.id)
         },
         logout():void {
             this.token = null
-            this.userId = null
             localStorage.removeItem('token')
-            localStorage.removeItem('userId')
             router.push('/login')
         },
     },

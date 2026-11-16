@@ -40,7 +40,8 @@ async function handleSubmit(){
       </div>
 
       <label>Email</label>
-      <input type="email" v-model="user.email" class="input-controll" placeholder="Your email address" required/>
+      <input type="emtion is not supported for Git operations.
+fatal: Authentication failed for 'https://github.com/Hobist-social-app/frontend.git/'ail" v-model="user.email" class="input-controll" placeholder="Your email address" required/>
 
       <label>Password</label>
       <input type="password" v-model="user.password" class="input-controll" placeholder="Your password" required/>

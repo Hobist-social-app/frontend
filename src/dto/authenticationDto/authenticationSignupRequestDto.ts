@@ -1,8 +1,7 @@
 import type {Immutable} from '@/types/immutable'
 
 export type AuthenticationSignupRequestDto=Immutable<{
-    name: string
-    surname: string
+    nickname: string
     email: string
     password:string
     confirmPassword:string
