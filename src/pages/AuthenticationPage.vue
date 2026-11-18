@@ -29,32 +29,25 @@ async function handleSubmit(){
 
 </script>
 <template>
-
-  <div id="outer-box">
-
-    <form @submit.prevent="handleSubmit" autocomplete="off">
-      <h1 class="heading">Login here</h1>
-
-      <div v-if="errorMessage" class="error-message">
-        <span> {{errorMessage}}</span>
-      </div>
-
-      <label>Email</label>
-      <input type="emtion is not supported for Git operations.
-fatal: Authentication failed for 'https://github.com/Hobist-social-app/frontend.git/'ail" v-model="user.email" class="input-controll" placeholder="Your email address" required/>
-
-      <label>Password</label>
-      <input type="password" v-model="user.password" class="input-controll" placeholder="Your password" required/>
-
-
-      <input type="submit" class="button" value="LOGIN">
-
-    </form>
-    <hr/>
-
-    <div class="noAcc">
-      <p> Dont have an account?<router-link to="/signup"> Register here</router-link></p>
-      <router-link to="/password-recovery">Forgot password?</router-link>
-    </div>
-  </div>
+  <main class="auth-shell">
+    <header class="auth-brand">Hobist <span class="brand-caption">A place for your passions</span></header>
+    <section class="auth-intro">
+      <span class="auth-eyebrow">...</span>
+      <h1>Good to have you back.</h1>
+      <p>Find your people. Make time for what you love.</p>
+    </section>
+    <section id="outer-box" aria-labelledby="login-title">
+      <div class="form-heading"><span class="section-number" aria-hidden="true">01</span><div><h2 id="login-title">Log in to Hobist</h2><p>Your hobbies, conversations, and community await.</p></div></div>
+      <form @submit.prevent="handleSubmit">
+        <div v-if="errorMessage" class="error-message" role="alert">{{ errorMessage }}</div>
+        <label for="login-email">Email address</label>
+        <input id="login-email" type="email" v-model="user.email" class="input-controll" placeholder="you@example.com" autocomplete="email" required />
+        <div class="password-label"><label for="login-password">Password</label><router-link to="/password-recovery">Forgot password?</router-link></div>
+        <input id="login-password" type="password" v-model="user.password" class="input-controll" placeholder="Enter your password" autocomplete="current-password" required />
+        <button type="submit" class="button">Log in <span aria-hidden="true">↗</span></button>
+      </form>
+      <div class="noAcc"><p>New around here? <router-link to="/signup">Create an account <span aria-hidden="true">→</span></router-link></p></div>
+    </section>
+    <footer class="auth-footer">A little curiosity. A whole lot of possibility.</footer>
+  </main>
 </template>

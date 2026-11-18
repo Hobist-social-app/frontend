@@ -9,7 +9,7 @@ import {router} from '@/router'
 
 
 interface authState{
-    token: string
+    token: string | null
 }
 
 interface JwtPayload{
