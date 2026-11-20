@@ -2,7 +2,7 @@ import type {Immutable} from '@/types/immutable'
 
 export type AuthenticationSignupRequestDto=Immutable<{
     nickname: string
+    phone:string
     email: string
-    password:string
-    confirmPassword:string
+    rawPassword:string
 }>
